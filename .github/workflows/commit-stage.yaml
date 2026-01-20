@@ -1,0 +1,19 @@
+name: Commit Stage
+on:
+  push:
+    branches:
+      - "main"
+
+concurrency:
+  group: order-service
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout-out@v5.0.0

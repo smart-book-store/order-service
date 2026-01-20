@@ -13,10 +13,10 @@ import java.time.Instant;
  *
  * @param id
  * @param bookIsbn
- * @param bookTitle
- * @param price
+ * @param bookName
+ * @param bookPrice
  * @param quantity
- * @param orderStatus
+ * @param status
  * @param createdDate
  * @param lastModifiedDate
  * @param version
@@ -26,17 +26,17 @@ public record Order(
     @Id
     Long id,
     String bookIsbn,
-    String bookTitle,
-    Double price,
+    String bookName,
+    Double bookPrice,
     Integer quantity,
-    OrderStatus orderStatus,
+    OrderStatus status,
     @CreatedDate
     Instant createdDate,
     @LastModifiedDate
     Instant lastModifiedDate,
     @Version
     int version) {
-  public static Order of(String bookIsbn, String bookTitle, Double price, Integer quantity, OrderStatus status) {
-    return new Order(null, bookIsbn, bookTitle, price, quantity, status, null, null, 0);
+  public static Order of(String bookIsbn, String bookName, Double price, Integer quantity, OrderStatus status) {
+    return new Order(null, bookIsbn, bookName, price, quantity, status, null, null, 0);
   }
 }
